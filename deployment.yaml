@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goremotedebug
+  labels:
+    app: goremotedebug
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: goremotedebug
+  template:
+    metadata:
+      name: goremotedebug
+      labels:
+        app: goremotedebug
+    spec:
+      containers:
+        - name: go-remote-debug-container
+          image: ranjit013/go-remote-debug:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+      restartPolicy: Always
+      
