@@ -1,0 +1,4 @@
+### GET request to example server
+GET 127.0.0.1:8080/
+
+###
