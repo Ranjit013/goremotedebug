@@ -1,0 +1,1 @@
+Install-Module -Name PSReadLine -RequiredVersion 2.2.6
