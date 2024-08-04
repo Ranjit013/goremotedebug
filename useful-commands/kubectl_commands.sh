@@ -6,4 +6,3 @@ kubectl get cm
 
 #To get the pod shell
 kubectl exec -it gokubernetes-5b49c96b7c-qq457 -- sh
-

@@ -1,26 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: goremotedebug
+  name: go-config-map
   labels:
-    app: goremotedebug
+    app: go-config-map
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: goremotedebug
+      app: go-config-map
   template:
     metadata:
-      name: goremotedebug
+      name: go-config-map
       labels:
-        app: goremotedebug
+        app: go-config-map
     spec:
       containers:
-        - name: go-remote-debug-container
-          image: ranjit013/go-remote-debug:latest
+        - name: go-config-map-container
+          image: ranjit013/test-configmap:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
               protocol: TCP
+          env:
+            - name: CONFIG_MAP_VALUE
+              valueFrom:
+                 configMapKeyRef:
+                   name: my-config
+                   key: config.json
       restartPolicy: Always
+
       
